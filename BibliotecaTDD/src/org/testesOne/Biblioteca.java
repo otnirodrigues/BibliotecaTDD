@@ -56,7 +56,7 @@ public class Biblioteca {
 
 	public boolean emprestimo(Livro l1, Pessoa p1) {
 		int livrosEmprestados = this.getLivrosPorPessoa(p1).size();
-		if((l1.getPessoa() == null) && livrosEmprestados < p1.getMaxLivros()){
+		if((l1.getPessoa() == null) && (livrosEmprestados < p1.getMaxLivros())){
 			l1.setPessoa(p1);
 			return true;
 		}else {
@@ -78,10 +78,12 @@ public class Biblioteca {
 		ArrayList<Livro> resultado = new ArrayList<Livro>();
 		
 		for(Livro l : getLivros()) {
-			if((l.getPessoa() != null) && 
-					(l.getPessoa().getNome().equals(p1.getNome()))) {
-				resultado.add(l);
+			if(l != null){
+				if(l.getPessoa().getNome().equals(p1.getNome())) {
+					resultado.add(l);
+				}
 			}
+				
 		}
 		return resultado;
 

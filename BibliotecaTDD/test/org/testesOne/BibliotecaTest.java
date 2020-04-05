@@ -24,6 +24,7 @@ public class BibliotecaTest extends TestCase {
 	}
 	
 	public void setup() {
+		
 		Livro l1 = new Livro("Livro 1");
 		Livro l2 = new Livro("Livro 2");
 		
@@ -39,6 +40,7 @@ public class BibliotecaTest extends TestCase {
 	
 	public void testAddLivro() {
 		// criar objetos
+		
 		setup();
 		
 		// testar se a biblioteca está vazia
@@ -71,9 +73,19 @@ public class BibliotecaTest extends TestCase {
 	public void testEmprestimo() {
 		// adiconar os objetos
 		
-		setup();
+		Livro l1 = new Livro("Livro 1");
+		Livro l2 = new Livro("Livro 2");
+		
+		Pessoa p1 = new Pessoa();
+		Pessoa p2 = new Pessoa();
+		
+		p1.setNome("Otni");
+		p2.setNome("Renallyda");
+		
+		b1 = new Biblioteca("Test");
 		
 		addItens();
+		
 		
 		assertTrue("Livro não pode ser emprestado", b1.emprestimo(l1, p1));
 		
@@ -103,10 +115,21 @@ public class BibliotecaTest extends TestCase {
 	}
 	
 	public void testGetLivrosPessoa() {
-		setup();
+		
+		Livro l1 = new Livro("Livro 1");
+		Livro l2 = new Livro("Livro 2");
+		
+		Pessoa p1 = new Pessoa();
+		Pessoa p2 = new Pessoa();
+		
+		p1.setNome("Otni");
+		p2.setNome("Renallyda");
+		
+		b1 = new Biblioteca("Test");
+		
 		addItens();
 		
-		assertEquals(0, b1.getLivrosPorPessoa(p1).size());
+		
 
 		b1.emprestimo(l1, p1);
 		
